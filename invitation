@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>모바일 청첩장</title>
+  <style>
+    @font-face {
+      font-family: "The Vintage";
+      src: url("fonts/TheVintage.woff2") format("woff2");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      font-family: "The Vintage", sans-serif;
+      text-align: center;
+      background: #fff;
+      color: #000;
+    }
+
+    /* 커플 사진 섹션 */
+    .hero {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .hero .overlay-text {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      font-size: 2rem;
+      color: #fff;
+      animation: pulse 2s infinite;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+    .hero .bottom-text {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      color: #fff;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+    .hero .bottom-text div:first-child {
+      font-size: 1.2rem;
+    }
+    .hero .bottom-text div:last-child {
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* 문구 */
+    .message {
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* 달력 */
+    .calendar {
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .calendar h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      font-size: 0.85rem;
+    }
+    .calendar-grid div {
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .calendar-grid .heart {
+      background: #000;
+      color: #fff;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+    }
+
+    /* 계좌 입력 */
+    .accounts {
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+    }
+    .accounts button {
+      width: 48%;
+      margin: 1%;
+      padding: 0.7rem;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .account-group {
+      margin-top: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: left;
+    }
+    .account-group label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+    .account-group input {
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    /* 갤러리 */
+    .gallery {
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+    .gallery-main {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery button.arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.8);
+      border: none;
+      padding: 6px 10px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .gallery .prev { left: 10px; }
+    .gallery .next { right: 10px; }
+    .thumbnails {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+    .thumbnails img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .thumbnails img.active {
+      outline: 3px solid #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 커플사진 -->
+  <section class="hero">
+    <img src="https://source.unsplash.com/random/800x600?couple" alt="커플사진">
+    <div class="overlay-text">Invitation</div>
+    <div class="bottom-text">
+      <div>황치훈 ♥ 심영은</div>
+      <div>2026.01.31 토요일 오전 11:00</div>
+    </div>
+  </section>
+
+  <!-- 문구 -->
+  <section class="message">
+    2022년 06월에 만나 연인이 되었습니다. 진실과 이해로써 하나를 이루려 합니다.<br>
+    바쁘신 가운데 두 사람의 앞날을 가까이에서 축복해 주시면 감사하겠습니다.<br><br>
+    황철균 · 안민숙 의 장남 황치훈<br>
+    심봉흠 · 도정분 의 차녀 심영은
+  </section>
+
+  <!-- 달력 -->
+  <section class="calendar">
+    <h3>January 2026</h3>
+    <div class="calendar-grid">
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+      <div></div><div></div><div></div><div></div><div>1</div><div>2</div><div>3</div>
+      <div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+      <div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div>
+      <div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div>
+      <div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div><div class="heart">31</div></div>
+    </div>
+  </section>
+
+  <!-- 계좌 입력 -->
+  <section class="accounts">
+    <button onclick="toggleAccounts('groom')">신랑측</button>
+    <button onclick="toggleAccounts('bride')">신부측</button>
+
+    <div id="groom-accounts" style="display:none;">
+      <div class="account-group">
+        <label>신랑님</label>
+        <input placeholder="예금주">
+        <input placeholder="은행명">
+        <input placeholder="계좌번호">
+      </div>
+      <div class="account-group">
+        <label>신랑 아버지</label>
+        <input placeholder="예금주">
+        <input placeholder="은행명">
+        <input placeholder="계좌번호">
+      </div>
+      <div class="account-group">
+        <label>신랑 어머니</label>
+        <input placeholder="예금주">
+        <input placeholder="은행명">
+        <input placeholder="계좌번호">
+      </div>
+    </div>
+
+    <div id="bride-accounts" style="display:none;">
+      <div class="account-group">
+        <label>신부님</label>
+        <input placeholder="예금주">
+        <input placeholder="은행명">
+        <input placeholder="계좌번호">
+      </div>
+      <div class="account-group">
+        <label>신부 아버지</label>
+        <input placeholder="예금주">
+        <input placeholder="은행명">
+        <input placeholder="계좌번호">
+      </div>
+      <div class="account-group">
+        <label>신부 어머니</label>
+        <input placeholder="예금주">
+        <input placeholder="은행명">
+        <input placeholder="계좌번호">
+      </div>
+    </div>
+  </section>
+
+  <!-- 갤러리 -->
+  <section class="gallery">
+    <div class="gallery-main">
+      <img id="mainImage" src="https://source.unsplash.com/random/800x600?sig=0" alt="갤러리 이미지">
+    </div>
+    <button class="arrow prev" onclick="prevImage()">◀</button>
+    <button class="arrow next" onclick="nextImage()">▶</button>
+
+    <div class="thumbnails" id="thumbnails"></div>
+  </section>
+
+  <script>
+    // 계좌 토글
+    function toggleAccounts(type) {
+      document.getElementById("groom-accounts").style.display = type === "groom" ? "block" : "none";
+      document.getElementById("bride-accounts").style.display = type === "bride" ? "block" : "none";
+    }
+
+    // 갤러리
+    const images = Array.from({length:20}).map((_,i)=>`https://source.unsplash.com/random/800x600?sig=${i}`);
+    let currentIndex = 0;
+
+    const mainImage = document.getElementById("mainImage");
+    const thumbnails = document.getElementById("thumbnails");
+
+    function renderThumbnails() {
+      thumbnails.innerHTML = "";
+      images.forEach((src,i)=>{
+        const img = document.createElement("img");
+        img.src = src;
+        if(i === currentIndex) img.classList.add("active");
+        img.onclick = ()=>{ currentIndex = i; updateImage(); };
+        thumbnails.appendChild(img);
+      });
+    }
+
+    function updateImage() {
+      mainImage.src = images[currentIndex];
+      renderThumbnails();
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateImage();
+    }
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateImage();
+    }
+
+    renderThumbnails();
+  </script>
+
+</body>
+</html>
